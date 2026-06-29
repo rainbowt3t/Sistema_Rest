@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import BottomNav from "../components/shared/BottomNav";
 import BackButton from "../components/shared/BackButton";
 import TableCard from "../components/tables/TableCard";
-import { tables } from "../constants";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getTables } from "../https";
 import { enqueueSnackbar } from "notistack";

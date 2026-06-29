@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import restaurant from "../assets/images/restaurant-img.jpg"
 import logo from "../assets/images/logo.png"
 import Register from "../components/auth/Register";
 import Login from "../components/auth/Login";
@@ -15,7 +14,7 @@ const Auth = () => {
   return (
     <div 
       className="min-h-screen w-full relative flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${restaurant})` }}
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')" }}
     >
       {/* Dark Blur Overlay */}
       <div className="absolute inset-0 bg-[#0e0708]/85 backdrop-blur-[4px]"></div>

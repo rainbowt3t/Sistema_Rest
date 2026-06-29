@@ -51,73 +51,73 @@ const Register = ({setIsRegister}) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="space-y-3.5">
         <div>
-          <label className="block text-[#ababab] mb-2 text-sm font-medium">
+          <label className="block text-[#ababab] mb-1.5 text-xs font-semibold uppercase tracking-wider">
             Nombre del empleado
           </label>
-          <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
+          <div className="flex items-center rounded-lg p-3 px-4 bg-[#1a1a1a] border border-[#2a2a2a] focus-within:border-[#b33a3a] focus-within:ring-1 focus-within:ring-[#b33a3a]/20 transition-all duration-200">
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Ingresa el nombre"
-              className="bg-transparent flex-1 text-white focus:outline-none"
+              className="bg-transparent flex-1 text-white focus:outline-none text-sm placeholder-gray-600"
               required
             />
           </div>
         </div>
         <div>
-          <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
+          <label className="block text-[#ababab] mb-1.5 text-xs font-semibold uppercase tracking-wider">
             Correo del empleado
           </label>
-          <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
+          <div className="flex items-center rounded-lg p-3 px-4 bg-[#1a1a1a] border border-[#2a2a2a] focus-within:border-[#b33a3a] focus-within:ring-1 focus-within:ring-[#b33a3a]/20 transition-all duration-200">
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="Ingresa el correo"
-              className="bg-transparent flex-1 text-white focus:outline-none"
+              className="bg-transparent flex-1 text-white focus:outline-none text-sm placeholder-gray-600"
               required
             />
           </div>
         </div>
         <div>
-          <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
+          <label className="block text-[#ababab] mb-1.5 text-xs font-semibold uppercase tracking-wider">
             Teléfono del empleado
           </label>
-          <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
+          <div className="flex items-center rounded-lg p-3 px-4 bg-[#1a1a1a] border border-[#2a2a2a] focus-within:border-[#b33a3a] focus-within:ring-1 focus-within:ring-[#b33a3a]/20 transition-all duration-200">
             <input
               type="number"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               placeholder="Ingresa el teléfono"
-              className="bg-transparent flex-1 text-white focus:outline-none"
+              className="bg-transparent flex-1 text-white focus:outline-none text-sm placeholder-gray-600"
               required
             />
           </div>
         </div>
         <div>
-          <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
+          <label className="block text-[#ababab] mb-1.5 text-xs font-semibold uppercase tracking-wider">
             Contraseña
           </label>
-          <div className="flex item-center rounded-lg p-5 px-4 bg-[#1f1f1f]">
+          <div className="flex items-center rounded-lg p-3 px-4 bg-[#1a1a1a] border border-[#2a2a2a] focus-within:border-[#b33a3a] focus-within:ring-1 focus-within:ring-[#b33a3a]/20 transition-all duration-200">
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Ingresa la contraseña"
-              className="bg-transparent flex-1 text-white focus:outline-none"
+              className="bg-transparent flex-1 text-white focus:outline-none text-sm placeholder-gray-600"
               required
             />
           </div>
         </div>
         <div>
-          <label className="block text-[#ababab] mb-2 mt-3 text-sm font-medium">
+          <label className="block text-[#ababab] mb-1.5 text-xs font-semibold uppercase tracking-wider">
             Elige un rol
           </label>
 
