@@ -1,0 +1,89 @@
+import React from "react";
+import { FaSearch } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
+import logo from "../../assets/images/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { IoLogOut } from "react-icons/io5";
+import { useMutation } from "@tanstack/react-query";
+import { logout } from "../../https";
+import { removeUser } from "../../redux/slices/userSlice";
+import { useNavigate } from "react-router-dom";
+import { MdDashboard } from "react-icons/md";
+
+const getRoleLabel = (role) => {
+  if (!role) return "Rol";
+  const labels = { Admin: "Administrador", Waiter: "Mesero", Cashier: "Cajero" };
+  return labels[role] || role;
+};
+
+const Header = () => {
+  const userData = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutMutation = useMutation({
+    mutationFn: () => logout(),
+    onSuccess: (data) => {
+      console.log(data);
+      dispatch(removeUser());
+      navigate("/auth");
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+
+  const handleLogout = () => {
+    logoutMutation.mutate();
+  };
+
+  return (
+    <header className="flex justify-between items-center py-4 px-8 bg-[#1a1a1a] border-b border-[#7a1f1f]/40">
+      <div onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
+        <img src={logo} className="h-8 w-8 rounded-full border border-[#b33a3a] p-1" alt="Legacy_Pe logo" />
+        <h1 className="text-lg font-semibold text-[#f5f5f5] tracking-wide">
+          Legacy_Pe
+        </h1>
+      </div>
+
+      <div className="flex items-center gap-4 bg-[#1f1f1f] rounded-[15px] px-5 py-2 w-[500px] border border-[#2a2a2a]">
+        <FaSearch className="text-[#f5f5f5]" />
+        <input
+          type="text"
+          placeholder="Buscar"
+          className="bg-[#1f1f1f] outline-none text-[#f5f5f5]"
+        />
+      </div>
+
+      <div className="flex items-center gap-4">
+        {userData.role === "Admin" && (
+          <div onClick={() => navigate("/dashboard")} className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer border border-[#2a2a2a] hover:border-[#b33a3a]">
+            <MdDashboard className="text-[#f5f5f5] text-2xl" />
+          </div>
+        )}
+        <div className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer border border-[#2a2a2a]">
+          <FaBell className="text-[#f5f5f5] text-2xl" />
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer">
+          <FaUserCircle className="text-[#f5f5f5] text-4xl" />
+          <div className="flex flex-col items-start">
+            <h1 className="text-md text-[#f5f5f5] font-semibold tracking-wide">
+              {userData.name || "Usuario"}
+            </h1>
+            <p className="text-xs text-[#ababab] font-medium">
+              {getRoleLabel(userData.role)}
+            </p>
+          </div>
+          <IoLogOut
+            onClick={handleLogout}
+            className="text-[#f5f5f5] ml-2"
+            size={40}
+          />
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
