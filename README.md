@@ -1,83 +1,75 @@
- 🍽️ **Restaurant POS System**  
+# Legacy_Pe - Sistema POS para Restaurante 🍽️
 
-A full-featured **Restaurant POS System** built using the **MERN Stack** to streamline restaurant operations, enhance customer experience, and manage orders, payments, and inventory with ease.
-
-## ✨ **Features**
-
-- 🍽️ **Order Management**  
-  Efficiently manage customer orders with real-time updates and status tracking.
-
-- 🪑 **Table Reservations**  
-  Simplify table bookings and manage reservations directly from the POS.
-
-- 🔐 **Authentication**  
-  Secure login and role-based access control for admins, staff, and users.
-
-- 💸 **Payment Integration**  
-  Integrated with **Razorpay** (or other gateways) for seamless online payments.
-
-- 🧾 **Billing & Invoicing**  
-  Automatically generate detailed bills and invoices for every order.
-
-
-## 🏗️ **Tech Stack**
-
-| **Category**             | **Technology**                |
-|--------------------------|-------------------------------|
-| 🖥️ **Frontend**          | React.js, Redux, Tailwind CSS  |
-| 🔙 **Backend**           | Node.js, Express.js           |
-| 🗄️ **Database**          | MongoDB                       |
-| 🔐 **Authentication**    | JWT, bcrypt                   |
-| 💳 **Payment Integration**| Razorpay    |
-| 📊 **State Management**   | Redux Toolkit                 |
-| ⚡ **Data Fetching & Caching** | React Query            |
-| 🔗 **APIs**              | RESTful APIs                   |
-
----
-<br>
-
-## 📺 **YouTube Playlist**
-
-🎬 Follow the complete tutorial series on building this Restaurant POS System on YouTube:  
-👉 [Watch the Playlist](https://www.youtube.com/playlist?list=PL9OdiypqS7Nk0DHnSNFIi8RgEFJCIWB6X)  
-
-## 📁 **Assets**
-
-- 📦 **Project Assets:** [Google Drive](https://drive.google.com/drive/folders/193N-F1jpzyfPCRCLc9wCyaxjYu2K6PC_)
+Un sistema de Punto de Venta (POS) premium y moderno desarrollado a la medida para **Legacy_Pe**, diseñado para agilizar la gestión de pedidos en salón, controlar el estado de las mesas en tiempo real y administrar la carta del restaurante de forma dinámica.
 
 ---
 
-## 📋 **Flow Chart for Project Structure**
+## ✨ Características Principales
 
-- 🗺️ **Visualize the Project Structure:** [View Flow Chart](https://app.eraser.io/workspace/IcU1b6EHu9ZyS9JKi0aY?origin=share)
+* 🔴 **Diseño Premium Rojo Opaco:** Interfaz elegante rediseñada bajo una paleta oscura con acentos rojo carmesí y un estilo visual premium.
+* 🇪🇸 **Traducido al Español:** Localización completa de todas las vistas, alertas, formatos de fecha, moneda (`S/`) y estados operativos en español peruano.
+* 🍔 **Carta Dinámica:** Gestión de platos y categorías en tiempo real leídos directamente desde la base de datos de MongoDB.
+* 🪑 **Control CRUD de Mesas:** Módulo administrador integrado para listar, crear, editar capacidad de asientos y eliminar mesas del salón.
+* 🛡️ **Seguridad por Roles:** Niveles de acceso restringidos para Administradores, Meseros y Cajeros con protección de rutas en el lado del cliente.
+* 🧾 **Boletas de Venta:** Generador de boletas e impresión de comprobantes en español personalizadas con la marca **Legacy_Pe**.
 
 ---
 
-## 🎨 **Design Inspiration**
+## 🏗️ Tecnología Utilizada
 
-- 💡 **UI/UX Design Reference:** [Behance Design](https://www.behance.net/gallery/210280099/Restaurant-POS-System-Point-of-Sale-UIUX-Design)
+| Componente | Tecnología |
+|---|---|
+| **Frontend** | React.js, Redux Toolkit, React Query, Tailwind CSS, Framer Motion |
+| **Backend** | Node.js, Express.js, Mongoose |
+| **Base de Datos** | MongoDB Atlas |
+| **Servidor Web** | Nginx (Proxy Inverso) |
+| **Gestión de Procesos** | PM2 |
 
 ---
 
-## 🖼️ **Project Screenshots**
+## 🛠️ Instalación y Configuración Local
 
-<table>
-  <tr>
-    <td><img src="https://res.cloudinary.com/amritrajmaurya/image/upload/v1740502772/ibjxvy5o1ikbsdebrjky.png" alt="Screenshot 1" width="300"/></td>
-    <td><img src="https://res.cloudinary.com/amritrajmaurya/image/upload/v1740502773/ietao6dnw6yjsh4f71zn.png" alt="Screenshot 2" width="300"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://res.cloudinary.com/amritrajmaurya/image/upload/v1740502772/vesokdfpa1jb7ytm9abi.png" alt="Screenshot 3" width="300"/></td>
-    <td><img src="https://res.cloudinary.com/amritrajmaurya/image/upload/v1740502772/setoqzhzbwbp9udpri1f.png" alt="Screenshot 4" width="300"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://res.cloudinary.com/amritrajmaurya/image/upload/v1740502772/fc4tiwzdoisqwac1j01y.png" alt="Screenshot 5" width="300"/></td>
-  </tr>
-</table>
+### Requisitos Previos
+* Node.js (v18+)
+* MongoDB (Local o Atlas)
 
+### Pasos
+1. **Clonar o descargar el proyecto**
+2. **Configurar el Backend:**
+   * Entra a la carpeta `pos-backend` e instala las dependencias: `npm install`
+   * Crea un archivo `.env` con las variables correspondientes (puerto, URL de MongoDB, JWT secret).
+   * Ejecuta el backend en modo desarrollo: `npm run dev` (esto inicializará la base de datos y sembrará la carta peruana inicial si está vacía).
+3. **Configurar el Frontend:**
+   * Entra a la carpeta `pos-frontend` e instala las dependencias: `npm install`
+   * Crea un archivo `.env` apuntando a tu backend (`VITE_BACKEND_URL=http://localhost:8000`).
+   * Inicia el frontend en desarrollo: `npm run dev`
 
-✨ Feel free to explore, contribute, and enhance the project! 🚀
+---
 
-💡 To contribute, please check out the **CONTRIBUTING.md** for guidelines.
+## 🌐 Despliegue en AWS EC2 (Servidor)
 
-⭐ If you find this project helpful, don't forget to **star** the repository! 🌟
+Para actualizar el servidor con los últimos cambios aplicados:
+
+1. **Memoria Virtual (Swap) para Servidores Micro (AWS EC2):**
+   *(Evita que el compilador sea interrumpido por falta de RAM)*
+   ```bash
+   sudo fallocate -l 2G /swapfile
+   sudo chmod 600 /swapfile
+   sudo mkswap /swapfile
+   sudo swapon /swapfile
+   echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+   ```
+
+2. **Descargar y compilar cambios:**
+   ```bash
+   cd ~/Sistema_Rest
+   git pull origin main
+   cd pos-frontend
+   npm run build
+   ```
+
+3. **Reiniciar los servicios:**
+   ```bash
+   cd ../pos-backend
+   pm2 restart pos-backend
+   ```

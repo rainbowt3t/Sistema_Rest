@@ -13,48 +13,44 @@ const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
 
   return (
-    <div className="flex min-h-screen w-full">
-      {/* Left Section */}
-      <div className="w-1/2 relative flex items-center justify-center bg-cover">
-        {/* BG Image */}
-        <img className="w-full h-full object-cover" src={restaurant} alt="Restaurant Image" />
+    <div 
+      className="min-h-screen w-full relative flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${restaurant})` }}
+    >
+      {/* Dark Blur Overlay */}
+      <div className="absolute inset-0 bg-[#0e0708]/85 backdrop-blur-[4px]"></div>
 
-        {/* Black Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+      {/* Floating Glowing Aura */}
+      <div className="absolute w-[350px] h-[350px] bg-[#7a1f1f]/20 rounded-full blur-[100px] pointer-events-none"></div>
 
-        {/* Quote at bottom */}
-        <blockquote className="absolute bottom-10 px-8 mb-10 text-2xl italic text-white">
-          "Sirve a tus clientes con la mejor comida, atención cálida y un ambiente que los invite a volver."
-          <br />
-          <span className="block mt-4 text-[#f5b4b4]">- Fundador de Legacy_Pe</span>
-        </blockquote>
-      </div>
-
-      {/* Right Section */}
-      <div className="w-1/2 min-h-screen bg-[#1a1a1a] p-10">
-        <div className="flex flex-col items-center gap-2">
-          <img src={logo} alt="Restro Logo" className="h-14 w-14 border-2 rounded-full p-1 border-[#b33a3a]" />
-          <h1 className="text-lg font-semibold text-[#f5f5f5] tracking-wide">Legacy_Pe</h1>
+      {/* Glassmorphic Auth Card */}
+      <div className="relative z-10 w-full max-w-md bg-[#161616]/90 border border-[#b33a3a]/25 rounded-2xl px-8 py-10 shadow-[0_8px_32px_0_rgba(122,31,31,0.2)] flex flex-col justify-center transition-all duration-300">
+        <div className="flex flex-col items-center gap-2 mb-6">
+          <img src={logo} alt="Legacy_Pe Logo" className="h-16 w-16 border-2 border-[#b33a3a] rounded-full p-1 bg-[#1a1a1a] shadow-inner" />
+          <h1 className="text-2xl font-bold text-[#f5f5f5] tracking-widest mt-1">LEGACY_PE</h1>
+          <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Sistema POS para Restaurante</p>
         </div>
 
-        <h2 className="text-4xl text-center mt-10 font-semibold text-[#f5b4b4] mb-10">
-          {isRegister ? "Registro de empleado" : "Inicio de sesión"}
+        <h2 className="text-2xl text-center font-bold text-[#f5b4b4] mb-6 tracking-wide">
+          {isRegister ? "Registro de Empleado" : "Iniciar Sesión"}
         </h2>
 
-        {/* Components */}  
-        {isRegister ? <Register setIsRegister={setIsRegister} /> : <Login />}
-
-
-        <div className="flex justify-center mt-6">
-          <p className="text-sm text-[#ababab]">
-            {isRegister ? "¿Ya tienes una cuenta? " : "¿No tienes una cuenta? "}
-            <a onClick={() => setIsRegister(!isRegister)} className="text-[#b33a3a] font-semibold hover:text-[#e55353] hover:underline" href="#">
-              {isRegister ? "Inicia sesión" : "Regístrate"}
-            </a>
-          </p>
+        {/* Forms */}  
+        <div className="w-full">
+          {isRegister ? <Register setIsRegister={setIsRegister} /> : <Login />}
         </div>
 
-
+        <div className="flex justify-center mt-6 border-t border-[#333]/60 pt-4">
+          <p className="text-sm text-[#ababab]">
+            {isRegister ? "¿Ya tienes una cuenta? " : "¿No tienes una cuenta? "}
+            <span 
+              onClick={() => setIsRegister(!isRegister)} 
+              className="text-[#b33a3a] font-bold hover:text-[#e55353] hover:underline cursor-pointer transition-all duration-200"
+            >
+              {isRegister ? "Inicia sesión" : "Regístrate"}
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

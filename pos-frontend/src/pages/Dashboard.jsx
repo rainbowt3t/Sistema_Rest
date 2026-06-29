@@ -39,8 +39,18 @@ const Dashboard = () => {
 
     if (action === "table") {
       setActiveTab("Mesas");
-    } else if (action === "dishes" || action === "category") {
+    } else if (action === "dishes") {
       setActiveTab("Menú");
+      setTimeout(() => {
+        const input = document.getElementById("dish-name-input");
+        if (input) input.focus();
+      }, 150);
+    } else if (action === "category") {
+      setActiveTab("Menú");
+      setTimeout(() => {
+        const input = document.getElementById("category-input");
+        if (input) input.focus();
+      }, 150);
     }
   };
 

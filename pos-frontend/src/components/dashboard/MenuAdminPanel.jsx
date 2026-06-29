@@ -107,12 +107,12 @@ const MenuAdminPanel = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="bg-[#1a1a1a] rounded-xl p-5 border border-[#2a2a2a] space-y-4">
-          <h3 className="text-xl font-semibold">{editId ? "Editar plato" : "Agregar plato"}</h3>
-          <input name="name" value={form.name} onChange={handleChange} required placeholder="Nombre del plato" className="w-full rounded-lg bg-[#262626] p-3" />
-          <input name="price" type="number" value={form.price} onChange={handleChange} required placeholder="Precio" className="w-full rounded-lg bg-[#262626] p-3" />
-          <input name="category" value={form.category} onChange={handleChange} required placeholder="Categoría" className="w-full rounded-lg bg-[#262626] p-3" />
-          <textarea name="description" value={form.description} onChange={handleChange} placeholder="Descripción" className="w-full rounded-lg bg-[#262626] p-3 min-h-[100px]" />
-          <button type="submit" className="w-full rounded-lg bg-[#7a1f1f] py-3 font-semibold">{editId ? "Guardar cambios" : "Agregar plato"}</button>
+          <h3 className="text-xl font-semibold text-[#b33a3a]">{editId ? "Editar plato" : "Agregar plato"}</h3>
+          <input id="dish-name-input" name="name" value={form.name} onChange={handleChange} required placeholder="Nombre del plato" className="w-full rounded-lg bg-[#262626] p-3 border border-[#3a3a3a] focus:outline-none focus:border-[#b33a3a] text-white" />
+          <input name="price" type="number" value={form.price} onChange={handleChange} required placeholder="Precio" className="w-full rounded-lg bg-[#262626] p-3 border border-[#3a3a3a] focus:outline-none focus:border-[#b33a3a] text-white" />
+          <input id="category-input" name="category" value={form.category} onChange={handleChange} required placeholder="Categoría" className="w-full rounded-lg bg-[#262626] p-3 border border-[#3a3a3a] focus:outline-none focus:border-[#b33a3a] text-white" />
+          <textarea name="description" value={form.description} onChange={handleChange} placeholder="Descripción" className="w-full rounded-lg bg-[#262626] p-3 min-h-[100px] border border-[#3a3a3a] focus:outline-none focus:border-[#b33a3a] text-white" />
+          <button type="submit" className="w-full rounded-lg bg-[#b33a3a] hover:bg-[#922e2e] py-3 font-semibold text-white transition-all duration-300 shadow-md">{editId ? "Guardar cambios" : "Agregar plato"}</button>
         </form>
       </div>
     </div>

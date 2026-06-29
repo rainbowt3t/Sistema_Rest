@@ -7,17 +7,16 @@ const Metrics = () => {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="font-semibold text-[#f5f5f5] text-xl">
-            Overall Performance
+            Desempeño General
           </h2>
-          <p className="text-sm text-[#ababab]">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Distinctio, obcaecati?
+          <p className="text-sm text-[#ababab] mt-1">
+            Métricas de ingresos, platos vendidos, total de clientes y reservas.
           </p>
         </div>
-        <button className="flex items-center gap-1 px-4 py-2 rounded-md text-[#f5f5f5] bg-[#1a1a1a]">
-          Last 1 Month
+        <button className="flex items-center gap-1 px-4 py-2 rounded-md text-[#f5f5f5] bg-[#1a1a1a] border border-[#2a2a2a] text-sm">
+          Último Mes
           <svg
-            className="w-3 h-3"
+            className="w-3 h-3 ml-1"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth="4"
@@ -32,7 +31,7 @@ const Metrics = () => {
           return (
             <div
               key={index}
-              className="shadow-sm rounded-lg p-4"
+              className="shadow-sm rounded-lg p-4 border border-[#2a2a2a]"
               style={{ backgroundColor: metric.color }}
             >
               <div className="flex justify-between items-center">
@@ -71,11 +70,10 @@ const Metrics = () => {
       <div className="flex flex-col justify-between mt-12">
         <div>
           <h2 className="font-semibold text-[#f5f5f5] text-xl">
-            Item Details
+            Detalle del Negocio
           </h2>
-          <p className="text-sm text-[#ababab]">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Distinctio, obcaecati?
+          <p className="text-sm text-[#ababab] mt-1">
+            Resumen del inventario y estado operativo de las mesas y platos.
           </p>
         </div>
 

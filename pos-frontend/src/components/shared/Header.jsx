@@ -1,7 +1,6 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
-import { FaBell } from "react-icons/fa";
 import logo from "../../assets/images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { IoLogOut } from "react-icons/io5";
@@ -58,13 +57,10 @@ const Header = () => {
 
       <div className="flex items-center gap-4">
         {userData.role === "Admin" && (
-          <div onClick={() => navigate("/dashboard")} className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer border border-[#2a2a2a] hover:border-[#b33a3a]">
+          <div onClick={() => navigate("/dashboard")} className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer border border-[#2a2a2a] hover:border-[#b33a3a] transition-all">
             <MdDashboard className="text-[#f5f5f5] text-2xl" />
           </div>
         )}
-        <div className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer border border-[#2a2a2a]">
-          <FaBell className="text-[#f5f5f5] text-2xl" />
-        </div>
         <div className="flex items-center gap-3 cursor-pointer">
           <FaUserCircle className="text-[#f5f5f5] text-4xl" />
           <div className="flex flex-col items-start">
