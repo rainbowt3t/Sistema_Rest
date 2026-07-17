@@ -109,7 +109,7 @@ const Invoice = ({ orderInfo, setShowInvoice }) => {
               <span>S/ {orderInfo.bills.total.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-gray-700">
-              <span>Impuesto (5.25%):</span>
+              <span>IGV (18.00%):</span>
               <span>S/ {orderInfo.bills.tax.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-sm font-bold text-gray-900 border-t pt-1 mt-1">
@@ -121,22 +121,16 @@ const Invoice = ({ orderInfo, setShowInvoice }) => {
           {/* Payment Details */}
 
           <div className="mb-2 mt-4 text-[10px] text-gray-500 border-t pt-2 space-y-0.5">
-            {orderInfo.paymentMethod === "Cash" ? (
-              <p>
-                <strong>Método de Pago:</strong> Efectivo
-              </p>
-            ) : (
+            <p>
+              <strong>Método de Pago:</strong> {orderInfo.paymentMethod || "Efectivo"}
+            </p>
+            {orderInfo.paymentData?.razorpay_payment_id && (
               <>
                 <p>
-                  <strong>Método de Pago:</strong> Pago en Línea (Simulado)
+                  <strong>ID Orden Banco:</strong> {orderInfo.paymentData?.razorpay_order_id}
                 </p>
                 <p>
-                  <strong>ID Orden Banco:</strong>{" "}
-                  {orderInfo.paymentData?.razorpay_order_id}
-                </p>
-                <p>
-                  <strong>ID Transacción Banco:</strong>{" "}
-                  {orderInfo.paymentData?.razorpay_payment_id}
+                  <strong>ID Transacción Banco:</strong> {orderInfo.paymentData?.razorpay_payment_id}
                 </p>
               </>
             )}

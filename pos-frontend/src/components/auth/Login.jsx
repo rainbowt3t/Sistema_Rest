@@ -43,33 +43,33 @@ const Login = () => {
     <div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-[#ababab] mb-1.5 text-xs font-semibold uppercase tracking-wider">
+          <label className="block text-[#a89a90] mb-1.5 text-xs font-semibold uppercase tracking-wider">
             Correo del empleado
           </label>
-          <div className="flex items-center rounded-lg p-3.5 px-4 bg-[#1a1a1a] border border-[#2a2a2a] focus-within:border-[#b33a3a] focus-within:ring-1 focus-within:ring-[#b33a3a]/20 transition-all duration-200">
+          <div className="flex items-center rounded-lg p-3.5 px-4 bg-[#241e1b] border border-[#362e2a] focus-within:border-[#c59b27] focus-within:ring-1 focus-within:ring-[#c59b27]/20 transition-all duration-200">
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="Ingresa el correo"
-              className="bg-transparent flex-1 text-white focus:outline-none text-sm placeholder-gray-600"
+              className="bg-transparent flex-1 text-[#f4ebe1] focus:outline-none text-sm placeholder-gray-600"
               required
             />
           </div>
         </div>
         <div>
-          <label className="block text-[#ababab] mb-1.5 text-xs font-semibold uppercase tracking-wider">
+          <label className="block text-[#a89a90] mb-1.5 text-xs font-semibold uppercase tracking-wider">
             Contraseña
           </label>
-          <div className="flex items-center rounded-lg p-3.5 px-4 bg-[#1a1a1a] border border-[#2a2a2a] focus-within:border-[#b33a3a] focus-within:ring-1 focus-within:ring-[#b33a3a]/20 transition-all duration-200">
+          <div className="flex items-center rounded-lg p-3.5 px-4 bg-[#241e1b] border border-[#362e2a] focus-within:border-[#c59b27] focus-within:ring-1 focus-within:ring-[#c59b27]/20 transition-all duration-200">
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Ingresa la contraseña"
-              className="bg-transparent flex-1 text-white focus:outline-none text-sm placeholder-gray-600"
+              className="bg-transparent flex-1 text-[#f4ebe1] focus:outline-none text-sm placeholder-gray-600"
               required
             />
           </div>
@@ -77,7 +77,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="w-full rounded-lg mt-6 py-3 text-lg bg-[#b33a3a] text-white hover:bg-[#922e2e] font-bold transition-all duration-300"
+          className="w-full rounded-lg mt-6 py-3 text-lg bg-[#b9472a] text-[#f4ebe1] hover:bg-[#a63d22] font-bold font-serif tracking-wider shadow-md hover:shadow-[0_4px_20px_rgba(185,71,42,0.35)] transition-all duration-300"
         >
           Iniciar sesión
         </button>

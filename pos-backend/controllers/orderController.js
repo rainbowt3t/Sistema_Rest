@@ -46,7 +46,6 @@ const getOrders = async (req, res, next) => {
 
 const updateOrder = async (req, res, next) => {
   try {
-    const { orderStatus } = req.body;
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -56,7 +55,7 @@ const updateOrder = async (req, res, next) => {
 
     const order = await Order.findByIdAndUpdate(
       id,
-      { orderStatus },
+      req.body,
       { new: true }
     );
 

@@ -55,7 +55,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="bg-[#1f1f1f] min-h-[calc(100vh-5rem)]">
+    <div className="bg-transparent min-h-[calc(100vh-5rem)]">
       <div className="container mx-auto flex items-center justify-between py-14 px-6 md:px-4">
         <div className="flex items-center gap-3">
           {buttons.map(({ label, icon, action }) => {
@@ -63,7 +63,7 @@ const Dashboard = () => {
               <button
                 key={action}
                 onClick={() => handleOpenModal(action)}
-                className="bg-[#1a1a1a] hover:bg-[#262626] px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2 border border-[#2a2a2a] hover:border-[#b33a3a] transition-all"
+                className="bg-[#241e1b] hover:bg-[#322824] px-6 py-2.5 rounded-lg text-[#f4ebe1] font-bold text-sm flex items-center gap-2 border border-[#362e2a] hover:border-[#c59b27] hover:shadow-[0_4px_12px_rgba(197,155,39,0.15)] transition-all font-serif tracking-wide"
               >
                 {label} {icon}
               </button>
@@ -71,16 +71,16 @@ const Dashboard = () => {
           })}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           {tabs.map((tab) => {
+            const isActive = activeTab === tab;
             return (
               <button
                 key={tab}
-                className={`
-                px-8 py-3 rounded-lg text-[#f5f5f5] font-semibold text-md flex items-center gap-2 border border-[#2a2a2a] transition-all ${
-                  activeTab === tab
-                    ? "bg-[#7a1f1f] border-[#b33a3a] text-white"
-                    : "bg-[#1a1a1a] hover:bg-[#262626]"
+                className={`px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 border transition-all duration-200 ${
+                  isActive
+                    ? "bg-[#b9472a] border-[#b9472a] text-[#f4ebe1] shadow-md"
+                    : "bg-[#241e1b] border-[#362e2a] text-[#a89a90] hover:bg-[#322824] hover:text-[#f4ebe1]"
                 }`}
                 onClick={() => setActiveTab(tab)}
               >
@@ -99,7 +99,7 @@ const Dashboard = () => {
         </div>
       )}
       {activeTab === "Mesas" && (
-        <div className="text-white p-6 container mx-auto">
+        <div className="text-[#f4ebe1] p-6 container mx-auto">
           <TableAdminPanel />
         </div>
       )}

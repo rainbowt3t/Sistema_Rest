@@ -72,14 +72,14 @@ const MenuContainer = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center py-20">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#b33a3a]"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#c59b27]"></div>
       </div>
     );
   }
 
   if (isError) {
     return (
-      <div className="text-center py-10 text-red-500">
+      <div className="text-center py-10 text-[#b9472a]">
         Error al cargar el menú. Por favor, intente de nuevo.
       </div>
     );
@@ -89,11 +89,16 @@ const MenuContainer = () => {
     <>
       <div className="grid grid-cols-4 gap-4 px-10 py-4 w-[100%]">
         {menus.map((menu) => {
+          const isSelected = selectedCategory === menu.name;
           return (
             <div
               key={menu.id}
-              className="flex flex-col items-start justify-between p-4 rounded-lg h-[100px] cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-              style={{ backgroundColor: menu.bgColor }}
+              className={`flex flex-col items-start justify-between p-4 rounded-xl h-[100px] cursor-pointer transition-all duration-300 hover:scale-[1.02] border ${
+                isSelected 
+                  ? "border-transparent text-[#f4ebe1] shadow-md" 
+                  : "bg-[#1c1613] border-[#2d2520] text-[#a89a90] hover:border-[#362e2a] hover:text-[#f4ebe1]"
+              }`}
+              style={{ backgroundColor: isSelected ? menu.bgColor : "" }}
               onClick={() => {
                 setSelectedCategory(menu.name);
                 setItemId(0);
@@ -101,14 +106,14 @@ const MenuContainer = () => {
               }}
             >
               <div className="flex items-center justify-between w-full">
-                <h1 className="text-[#f5f5f5] text-lg font-semibold">
+                <h1 className="text-md font-bold font-serif">
                   {menu.icon} {menu.name}
                 </h1>
-                {selectedCategory === menu.name && (
-                  <GrRadialSelected className="text-white animate-pulse" size={20} />
+                {isSelected && (
+                  <GrRadialSelected className="text-[#f4ebe1] animate-pulse" size={18} />
                 )}
               </div>
-              <p className="text-[#ababab] text-sm font-semibold">
+              <p className={`text-xs font-semibold ${isSelected ? "text-[#f4ebe1]/80" : "text-[#a89a90]"}`}>
                 {menu.items.length} {menu.items.length === 1 ? 'plato' : 'platos'}
               </p>
             </div>
@@ -116,7 +121,7 @@ const MenuContainer = () => {
         })}
       </div>
 
-      <hr className="border-[#2a2a2a] border-t-2 mt-4" />
+      <hr className="border-[#2d2520] border-t mt-4" />
 
       <div className="grid grid-cols-4 gap-4 px-10 py-4 w-[100%] max-h-[500px] overflow-y-auto scrollbar-hide">
         {activeItems.length > 0 ? (
@@ -124,39 +129,39 @@ const MenuContainer = () => {
             return (
               <div
                 key={item._id}
-                className="flex flex-col items-start justify-between p-4 rounded-lg h-[150px] cursor-pointer hover:bg-[#2e1d1d] bg-[#1a1a1a] border border-[#2a2a2a] transition-all duration-300"
+                className="flex flex-col items-start justify-between p-4 rounded-xl h-[160px] cursor-pointer bg-[#1c1613] border border-[#2d2520] hover:border-[#c59b27] hover:shadow-[0_4px_20px_rgba(197,155,39,0.08)] transition-all duration-300"
               >
                 <div className="flex items-start justify-between w-full gap-2">
                   <div className="overflow-hidden">
-                    <h1 className="text-[#f5f5f5] text-sm font-semibold truncate" title={item.name}>
+                    <h1 className="text-[#f4ebe1] text-sm font-bold truncate font-serif" title={item.name}>
                       {item.name}
                     </h1>
-                    <p className="text-[10px] text-gray-500 line-clamp-2 mt-1">{item.description}</p>
+                    <p className="text-[10px] text-[#a89a90] line-clamp-2 mt-1 leading-relaxed">{item.description}</p>
                   </div>
                   <button
                     onClick={() => handleAddToCart(item)}
-                    className="bg-[#3e1f1f] text-[#f5b4b4] p-2 rounded-lg hover:bg-[#b33a3a] hover:text-white transition-all shrink-0"
+                    className="bg-[#241e1b] border border-[#362e2a] text-[#c59b27] p-2.5 rounded-lg hover:bg-[#b9472a] hover:text-[#f4ebe1] hover:border-[#b9472a] transition-all shrink-0 shadow-sm"
                   >
-                    <FaShoppingCart size={16} />
+                    <FaShoppingCart size={15} />
                   </button>
                 </div>
-                <div className="flex items-center justify-between w-full">
-                  <p className="text-[#f5f5f5] text-lg font-bold">
+                <div className="flex items-center justify-between w-full border-t border-[#2d2520]/60 pt-3">
+                  <p className="text-[#c59b27] text-md font-bold font-serif">
                     S/ {item.price.toFixed(2)}
                   </p>
-                  <div className="flex items-center justify-between bg-[#1f1f1f] px-3 py-2 rounded-lg gap-4 w-[55%]">
+                  <div className="flex items-center justify-between bg-[#241e1b] border border-[#362e2a] px-3 py-1 rounded-lg gap-4 w-[55%]">
                     <button
                       onClick={() => decrement(item._id)}
-                      className="text-red-500 hover:text-red-400 text-xl font-bold"
+                      className="text-[#b9472a] hover:text-[#a63d22] text-lg font-black transition-colors"
                     >
                       &minus;
                     </button>
-                    <span className="text-white text-sm font-semibold">
+                    <span className="text-[#f4ebe1] text-xs font-bold">
                       {itemId === item._id ? itemCount : "0"}
                     </span>
                     <button
                       onClick={() => increment(item._id)}
-                      className="text-red-500 hover:text-red-400 text-xl font-bold"
+                      className="text-[#b9472a] hover:text-[#a63d22] text-lg font-black transition-colors"
                     >
                       &#43;
                     </button>
@@ -166,7 +171,7 @@ const MenuContainer = () => {
             );
           })
         ) : (
-          <p className="col-span-4 text-gray-500 text-center py-10">No hay platos registrados en esta categoría.</p>
+          <p className="col-span-4 text-[#a89a90] text-center py-10 text-sm">No hay platos registrados en esta categoría.</p>
         )}
       </div>
     </>

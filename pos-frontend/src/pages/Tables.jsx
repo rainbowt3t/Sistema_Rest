@@ -27,44 +27,57 @@ const Tables = () => {
 
   console.log(resData);
 
+  const tablesList = resData?.data.data || [];
+  const filteredTables = tablesList.filter((table) => {
+    if (status === "all") return true;
+    if (status === "booked") return table.status === "Booked";
+    return true;
+  });
+
   return (
-    <section className="bg-[#1f1f1f]  h-[calc(100vh-5rem)] overflow-hidden">
+    <section className="bg-transparent h-[calc(100vh-5rem)] overflow-hidden pb-20">
       <div className="flex items-center justify-between px-10 py-4">
         <div className="flex items-center gap-4">
           <BackButton />
-          <h1 className="text-[#f5f5f5] text-2xl font-bold tracking-wider">
-            Mesas
+          <h1 className="text-[#c59b27] text-2xl font-bold font-serif tracking-widest uppercase">
+            Mesas del Salón
           </h1>
         </div>
-        <div className="flex items-center justify-around gap-4">
+        <div className="flex items-center justify-around gap-3">
           <button
             onClick={() => setStatus("all")}
-            className={`text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold transition-all ${
-              status === "all" ? "bg-[#7a1f1f] text-white" : "hover:bg-[#262626]"
+            className={`text-sm rounded-lg px-5 py-2 font-bold transition-all border ${
+              status === "all" 
+                ? "bg-[#b9472a] text-[#f4ebe1] border-[#b9472a] shadow-sm" 
+                : "bg-[#241e1b] border-[#362e2a] text-[#a89a90] hover:bg-[#322824] hover:text-[#f4ebe1]"
             }`}
           >
-            Todas
+            Todas ({tablesList.length})
           </button>
           <button
             onClick={() => setStatus("booked")}
-            className={`text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold transition-all ${
-              status === "booked" ? "bg-[#7a1f1f] text-white" : "hover:bg-[#262626]"
+            className={`text-sm rounded-lg px-5 py-2 font-bold transition-all border ${
+              status === "booked" 
+                ? "bg-[#b9472a] text-[#f4ebe1] border-[#b9472a] shadow-sm" 
+                : "bg-[#241e1b] border-[#362e2a] text-[#a89a90] hover:bg-[#322824] hover:text-[#f4ebe1]"
             }`}
           >
-            Ocupadas
+            Ocupadas ({tablesList.filter(t => t.status === "Booked").length})
           </button>
         </div>
       </div>
  
-      <div className="grid grid-cols-5 gap-3 px-16 py-4 h-[650px] overflow-y-scroll scrollbar-hide">
-        {resData?.data.data.map((table) => {
+      <div className="grid grid-cols-5 gap-4 px-16 py-4 h-full overflow-y-auto scrollbar-hide pb-12">
+        {filteredTables.map((table) => {
           return (
             <TableCard
+              key={table._id}
               id={table._id}
               name={table.tableNo}
               status={table.status}
-              initials={table?.currentOrder?.customerDetails.name}
+              initials={table?.currentOrder?.customerDetails?.name}
               seats={table.seats}
+              currentOrder={table.currentOrder}
             />
           );
         })}

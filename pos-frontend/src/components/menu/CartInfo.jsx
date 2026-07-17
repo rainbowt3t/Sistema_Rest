@@ -23,18 +23,18 @@ const CartInfo = () => {
   }
 
   return (
-    <div className="px-4 py-2">
+    <div className="px-4 py-2 flex-1 flex flex-col min-h-0">
       <h1 className="text-lg text-[#e4e4e4] font-semibold tracking-wide">
         Detalle del pedido
       </h1>
-      <div className="mt-4 overflow-y-scroll scrollbar-hide h-[380px]" ref={scrolLRef} >
+      <div className="mt-3 overflow-y-auto flex-1 scrollbar-hide" ref={scrolLRef} >
         {cartData.length === 0 ? (
-          <p className="text-[#ababab] text-sm flex justify-center items-center h-[380px]">Tu carrito está vacío. Agrega platos para comenzar.</p>
+          <p className="text-[#ababab] text-sm flex justify-center items-center flex-1 py-10">Tu carrito está vacío. Agrega platos para comenzar.</p>
         ) : cartData.map((item) => {
           return (
-            <div className="bg-[#1f1f1f] rounded-lg px-4 py-4 mb-2">
+            <div key={item.id} className="bg-[#1f1f1f] rounded-lg px-4 py-4 mb-2">
               <div className="flex items-center justify-between">
-                <h1 className="text-[#ababab] font-semibold tracling-wide text-md">
+                <h1 className="text-[#ababab] font-semibold tracking-wide text-md">
                   {item.name}
                 </h1>
                 <p className="text-[#ababab] font-semibold">x{item.quantity}</p>

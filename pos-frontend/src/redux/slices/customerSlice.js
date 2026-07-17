@@ -22,6 +22,7 @@ const customerSlice = createSlice({
         },
 
         removeCustomer: (state) => {
+            state.orderId = "";
             state.customerName = "";
             state.customerPhone = "";
             state.guests = 0;
@@ -30,11 +31,20 @@ const customerSlice = createSlice({
 
         updateTable: (state, action) => {
             state.table = action.payload.table;
+        },
+
+        loadActiveOrder: (state, action) => {
+            const { orderId, name, phone, guests, table } = action.payload;
+            state.orderId = orderId;
+            state.customerName = name;
+            state.customerPhone = phone;
+            state.guests = guests;
+            state.table = table;
         }
 
     }
 })
 
 
-export const { setCustomer, removeCustomer, updateTable } = customerSlice.actions;
+export const { setCustomer, removeCustomer, updateTable, loadActiveOrder } = customerSlice.actions;
 export default customerSlice.reducer;

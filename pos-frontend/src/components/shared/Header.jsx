@@ -38,43 +38,43 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center py-4 px-8 bg-[#1a1a1a] border-b border-[#7a1f1f]/40">
-      <div onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
-        <img src={logo} className="h-8 w-8 rounded-full border border-[#b33a3a] p-1" alt="Legacy_Pe logo" />
-        <h1 className="text-lg font-semibold text-[#f5f5f5] tracking-wide">
+    <header className="flex justify-between items-center py-4 px-8 bg-[#1c1613] border-b border-[#2d2520] shadow-md">
+      <div onClick={() => navigate("/")} className="flex items-center gap-2.5 cursor-pointer">
+        <img src={logo} className="h-9 w-9 rounded-full border border-[#c59b27] p-0.5 bg-[#1c1613]" alt="Legacy_Pe logo" />
+        <h1 className="text-xl font-extrabold text-[#c59b27] tracking-widest font-serif uppercase">
           Legacy_Pe
         </h1>
       </div>
 
-      <div className="flex items-center gap-4 bg-[#1f1f1f] rounded-[15px] px-5 py-2 w-[500px] border border-[#2a2a2a]">
-        <FaSearch className="text-[#f5f5f5]" />
+      <div className="flex items-center gap-3 bg-[#241e1b] rounded-[15px] px-5 py-2.5 w-[500px] border border-[#362e2a] focus-within:border-[#c59b27] focus-within:ring-1 focus-within:ring-[#c59b27]/20 transition-all duration-200">
+        <FaSearch className="text-[#a89a90] text-sm" />
         <input
           type="text"
-          placeholder="Buscar"
-          className="bg-[#1f1f1f] outline-none text-[#f5f5f5]"
+          placeholder="Buscar platos o bebidas..."
+          className="bg-transparent outline-none text-[#f4ebe1] text-sm w-full placeholder-gray-600"
         />
       </div>
 
       <div className="flex items-center gap-4">
         {userData.role === "Admin" && (
-          <div onClick={() => navigate("/dashboard")} className="bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer border border-[#2a2a2a] hover:border-[#b33a3a] transition-all">
-            <MdDashboard className="text-[#f5f5f5] text-2xl" />
+          <div onClick={() => navigate("/dashboard")} className="bg-[#241e1b] rounded-[15px] p-3 cursor-pointer border border-[#362e2a] hover:border-[#c59b27] hover:bg-[#322824] transition-all">
+            <MdDashboard className="text-[#f4ebe1] text-xl" />
           </div>
         )}
         <div className="flex items-center gap-3 cursor-pointer">
-          <FaUserCircle className="text-[#f5f5f5] text-4xl" />
+          <FaUserCircle className="text-[#c59b27] text-4xl" />
           <div className="flex flex-col items-start">
-            <h1 className="text-md text-[#f5f5f5] font-semibold tracking-wide">
+            <h1 className="text-sm text-[#f4ebe1] font-bold tracking-wide">
               {userData.name || "Usuario"}
             </h1>
-            <p className="text-xs text-[#ababab] font-medium">
+            <p className="text-[10px] text-[#a89a90] font-semibold uppercase tracking-wider">
               {getRoleLabel(userData.role)}
             </p>
           </div>
           <IoLogOut
             onClick={handleLogout}
-            className="text-[#f5f5f5] ml-2"
-            size={40}
+            className="text-[#a89a90] hover:text-[#b9472a] ml-3 transition-colors duration-200"
+            size={36}
           />
         </div>
       </div>

@@ -17,24 +17,24 @@ const Menu = () => {
   const customerData = useSelector((state) => state.customer);
 
   return (
-    <section className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3">
+    <section className="bg-transparent h-[calc(100vh-5rem)] overflow-hidden flex gap-3 pb-20">
       {/* Left Div */}
       <div className="flex-[3]">
         <div className="flex items-center justify-between px-10 py-4">
           <div className="flex items-center gap-4">
             <BackButton />
-            <h1 className="text-[#f5f5f5] text-2xl font-bold tracking-wider">
+            <h1 className="text-[#f4ebe1] text-2xl font-bold tracking-wider font-serif">
               Menú
             </h1>
           </div>
           <div className="flex items-center justify-around gap-4">
             <div className="flex items-center gap-3 cursor-pointer">
-              <MdRestaurantMenu className="text-[#f5f5f5] text-4xl" />
+              <MdRestaurantMenu className="text-[#f4ebe1] text-4xl" />
               <div className="flex flex-col items-start">
-                <h1 className="text-md text-[#f5f5f5] font-semibold tracking-wide">
+                <h1 className="text-md text-[#f4ebe1] font-semibold tracking-wide font-serif">
                   {customerData.customerName || "Nombre del cliente"}
                 </h1>
-                <p className="text-xs text-[#ababab] font-medium">
+                <p className="text-xs text-[#a89a90] font-medium">
                   Mesa : {customerData.table?.tableNo || "N/A"}
                 </p>
               </div>
@@ -45,13 +45,13 @@ const Menu = () => {
         <MenuContainer />
       </div>
       {/* Right Div */}
-      <div className="flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[780px] rounded-lg pt-2">
+      <div className="flex-[1] bg-[#1c1613] border border-[#2d2520] mt-4 mr-3 h-full rounded-xl pt-2 flex flex-col justify-between">
         {/* Customer Info */}
         <CustomerInfo />
-        <hr className="border-[#2a2a2a] border-t-2" />
+        <hr className="border-[#2d2520] border-t" />
         {/* Cart Items */}
         <CartInfo />
-        <hr className="border-[#2a2a2a] border-t-2" />
+        <hr className="border-[#2d2520] border-t" />
         {/* Bills */}
         <Bill />
       </div>

@@ -1,18 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #1a0f10 0%, #2d1517 100%);
-  color: #f5f5f5;
+  font-family: 'Outfit', sans-serif;
+  background: radial-gradient(circle at center, #1e1512 0%, #0f0a09 100%);
+  color: #f4ebe1;
+  min-height: 100vh;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
 }
 
 ::selection {
-  background: #b33a3a;
-  color: #fff;
+  background: #b9472a;
+  color: #f4ebe1;
 }
 
 /* FullScreenLoader.css */
@@ -23,16 +28,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1f1f1f; /* White background with some transparency */
+  background-color: #12100e;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure it's on top of other content */
+  z-index: 9999;
 }
 
 .spinner {
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #b33a3a; /* Red color for spinner */
+  border: 4px solid rgba(244, 235, 225, 0.1);
+  border-top: 4px solid #c59b27;
   border-radius: 50%;
   width: 50px;
   height: 50px;

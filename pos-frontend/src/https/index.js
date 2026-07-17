@@ -25,8 +25,8 @@ export const verifyPaymentRazorpay = (data) =>
 // Order Endpoints
 export const addOrder = (data) => axiosWrapper.post("/api/order/", data);
 export const getOrders = () => axiosWrapper.get("/api/order");
-export const updateOrderStatus = ({ orderId, orderStatus }) =>
-  axiosWrapper.put(`/api/order/${orderId}`, { orderStatus });
+export const updateOrderStatus = (orderId, data) =>
+  axiosWrapper.put(`/api/order/${orderId}`, data);
 
 // Menu Endpoints
 export const getMenuItems = () => axiosWrapper.get("/api/menu");

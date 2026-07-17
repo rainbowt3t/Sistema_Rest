@@ -88,58 +88,62 @@ const TableAdminPanel = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center py-20">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#b33a3a]"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#c59b27]"></div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto p-6 text-white">
+    <div className="container mx-auto p-6 text-[#f4ebe1]">
       <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-6">
-        <div className="bg-[#1a1a1a] rounded-xl p-5 border border-[#2a2a2a]">
-          <h3 className="text-xl font-semibold mb-4">Mesas registradas</h3>
+        <div className="bg-[#1c1613] rounded-xl p-5 border border-[#2d2520]">
+          <h3 className="text-xl font-bold font-serif mb-4 text-[#f4ebe1]">Mesas registradas</h3>
           <div className="space-y-3 max-h-[420px] overflow-y-auto scrollbar-hide">
             {data?.data?.data?.length > 0 ? (
               data.data.data.map((item) => (
-                <div key={item._id} className="flex justify-between items-center bg-[#262626] rounded-lg p-3 border border-[#333]">
+                <div key={item._id} className="flex justify-between items-center bg-[#241e1b] rounded-lg p-3 border border-[#362e2a]">
                   <div>
-                    <p className="font-semibold text-lg text-[#f5f5f5]">Mesa {item.tableNo}</p>
-                    <p className="text-sm text-[#ababab]">{item.seats} Asientos</p>
+                    <p className="font-bold text-base text-[#f4ebe1] font-serif">Mesa {item.tableNo}</p>
+                    <p className="text-xs text-[#a89a90] mt-0.5">{item.seats} Asientos</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className={`px-2.5 py-1 rounded text-xs font-semibold ${item.status === 'Available' ? 'bg-[#2e4a40] text-green-400' : 'bg-[#421d1d] text-[#f5b4b4]'}`}>
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
+                      item.status === 'Available' 
+                        ? 'bg-[#241e1b] border border-[#c59b27]/30 text-[#c59b27]' 
+                        : 'text-[#b9472a] bg-[#3a201b] border border-[#b9472a]/20'
+                    }`}>
                       {item.status === 'Available' ? 'Disponible' : 'Ocupada'}
                     </span>
-                    <button onClick={() => startEdit(item)} className="px-3.5 py-1.5 text-xs font-semibold rounded bg-[#7a1f1f] hover:bg-[#b33a3a] transition-all">Editar</button>
+                    <button onClick={() => startEdit(item)} className="px-3.5 py-1.5 text-xs font-bold rounded bg-[#b9472a] hover:bg-[#a63d22] text-[#f4ebe1] font-serif transition-all">Editar</button>
                     <button onClick={() => {
                       if (window.confirm(`¿Estás seguro de eliminar la Mesa ${item.tableNo}?`)) {
                         deleteMutation.mutate(item._id);
                       }
-                    }} className="px-3.5 py-1.5 text-xs font-semibold rounded bg-[#3f3f3f] hover:bg-[#5a5a5a] transition-all">Eliminar</button>
+                    }} className="px-3.5 py-1.5 text-xs font-bold rounded bg-[#241e1b] border border-[#362e2a] hover:bg-[#322824] text-[#a89a90] hover:text-[#f4ebe1] transition-all">Eliminar</button>
                   </div>
                 </div>
               ))
             ) : (
-              <p className="text-gray-500 py-10 text-center">No hay mesas registradas.</p>
+              <p className="text-[#a89a90] py-10 text-center text-sm">No hay mesas registradas.</p>
             )}
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-[#1a1a1a] rounded-xl p-5 border border-[#2a2a2a] space-y-4 h-fit">
-          <h3 className="text-xl font-semibold text-[#b33a3a]">{editId ? "Editar mesa" : "Agregar mesa"}</h3>
+        <form onSubmit={handleSubmit} className="bg-[#1c1613] rounded-xl p-5 border border-[#2d2520] space-y-4 h-fit">
+          <h3 className="text-xl font-bold font-serif text-[#c59b27] border-b border-[#2d2520] pb-2">{editId ? "Editar Mesa" : "Agregar Mesa"}</h3>
           <div>
-            <label className="block text-xs text-gray-400 mb-1">Número de Mesa</label>
-            <input name="tableNo" type="number" value={form.tableNo} onChange={handleChange} required placeholder="Ej. 1" className="w-full rounded-lg bg-[#262626] p-3 border border-[#3a3a3a] focus:outline-none focus:border-[#b33a3a] text-white" />
+            <label className="block text-xs text-[#a89a90] mb-1.5 font-semibold uppercase tracking-wider">Número de Mesa</label>
+            <input name="tableNo" type="number" value={form.tableNo} onChange={handleChange} required placeholder="Ej. 1" className="w-full rounded-lg bg-[#241e1b] p-3 border border-[#362e2a] focus:outline-none focus:border-[#c59b27] text-sm text-[#f4ebe1] placeholder-gray-700" />
           </div>
           <div>
-            <label className="block text-xs text-gray-400 mb-1">Cantidad de Asientos</label>
-            <input name="seats" type="number" value={form.seats} onChange={handleChange} required placeholder="Ej. 4" className="w-full rounded-lg bg-[#262626] p-3 border border-[#3a3a3a] focus:outline-none focus:border-[#b33a3a] text-white" />
+            <label className="block text-xs text-[#a89a90] mb-1.5 font-semibold uppercase tracking-wider">Cantidad de Asientos</label>
+            <input name="seats" type="number" value={form.seats} onChange={handleChange} required placeholder="Ej. 4" className="w-full rounded-lg bg-[#241e1b] p-3 border border-[#362e2a] focus:outline-none focus:border-[#c59b27] text-sm text-[#f4ebe1] placeholder-gray-700" />
           </div>
           <div className="flex gap-2 pt-2">
             {editId && (
-              <button type="button" onClick={handleCancelEdit} className="flex-1 rounded-lg bg-[#3f3f3f] hover:bg-[#5f5f5f] py-3 font-semibold text-white transition-all">Cancelar</button>
+              <button type="button" onClick={handleCancelEdit} className="flex-1 rounded-lg bg-[#241e1b] border border-[#362e2a] hover:bg-[#322824] py-3 font-bold font-serif text-sm text-[#a89a90] hover:text-[#f4ebe1] transition-all">Cancelar</button>
             )}
-            <button type="submit" className="flex-1 rounded-lg bg-[#b33a3a] hover:bg-[#922e2e] py-3 font-semibold text-white transition-all">{editId ? "Guardar cambios" : "Agregar mesa"}</button>
+            <button type="submit" className="flex-1 rounded-lg bg-[#b9472a] hover:bg-[#a63d22] py-3 font-bold font-serif text-[#f4ebe1] text-sm shadow-md hover:shadow-[0_4px_16px_rgba(185,71,42,0.3)] transition-all">{editId ? "Guardar" : "Agregar"}</button>
           </div>
         </form>
       </div>
